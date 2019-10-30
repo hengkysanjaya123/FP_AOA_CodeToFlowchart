@@ -54,7 +54,7 @@ root.geometry("730x630")
 
 
 def open_file():
-    filename = filedialog.askopenfilename(initialdir="/", title="Select file",
+    filename = filedialog.askopenfilename(title="Select file",
                                           filetypes=(("C++ File", "*.cpp"), ("All Files", "*.*")))
     print(filename)
     txt.delete(1.0 , END)
