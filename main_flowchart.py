@@ -245,7 +245,7 @@ def draw_flowchart(source_code):
     # print(new_indexing_result)
     # print("final_res indexing",new_indexing_result)
 
-    fc = Digraph(name="flowchart", strict=True)
+    fc = Digraph(name="flowchart", strict=True, format='png')
 
     num = 0
 
