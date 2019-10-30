@@ -1,0 +1,8 @@
+PngImagePlugin.py: 146:STREAM b'IHDR' 16 13
+PngImagePlugin.py: 146:STREAM b'pHYs' 41 9
+PngImagePlugin.py: 146:STREAM b'iTXt' 62 2373
+PngImagePlugin.py: 146:STREAM b'IDAT' 2447 82139
+PngImagePlugin.py: 146:STREAM b'IHDR' 16 13
+PngImagePlugin.py: 146:STREAM b'pHYs' 41 9
+PngImagePlugin.py: 146:STREAM b'iTXt' 62 2373
+PngImagePlugin.py: 146:STREAM b'IDAT' 2447 110419

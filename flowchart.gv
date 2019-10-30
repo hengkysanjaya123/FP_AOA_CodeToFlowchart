@@ -1,0 +1,173 @@
+strict digraph flowchart {
+	node [shape=diamond]
+	0 [label="a > b" color="#fdcb6e" shape=diamond style=filled]
+	node [rankdir=LR]
+	start [color="#55efc4" shape=oval style=filled]
+	start -> 0
+	0 -> 2 [label=false]
+	0 -> 1 [label=true]
+	node [color="#fab1a0" shape=parallelogram style=filled]
+	1 [label="print \"Test\""]
+	1 [label="print \"Test\"" color="#fab1a0" shape=parallelogram style=filled]
+	node [shape=diamond]
+	2 [label="a > b" color="#fdcb6e" shape=diamond style=filled]
+	1 -> 2
+	2 -> 4 [label=false]
+	2 -> 3 [label=true]
+	node [color="#fab1a0" shape=parallelogram style=filled]
+	3 [label="print \"Test\""]
+	3 [label="print \"Test\"" color="#fab1a0" shape=parallelogram style=filled]
+	node [shape=diamond]
+	4 [label="a > b" color="#fdcb6e" shape=diamond style=filled]
+	3 -> 4
+	4 -> 6 [label=false]
+	4 -> 5 [label=true]
+	node [color="#fab1a0" shape=parallelogram style=filled]
+	5 [label="print \"Test\""]
+	5 [label="print \"Test\"" color="#fab1a0" shape=parallelogram style=filled]
+	node [shape=diamond]
+	6 [label="a > b" color="#fdcb6e" shape=diamond style=filled]
+	5 -> 6
+	6 -> 8 [label=false]
+	6 -> 7
+	6 -> 7 [label=true]
+	node [color="#fab1a0" shape=parallelogram style=filled]
+	7 [label="print \"Test\""]
+	7 [label="print \"Test\"" color="#fab1a0" shape=parallelogram style=filled]
+	node [shape=diamond]
+	8 [label="a > b" color="#fdcb6e" shape=diamond style=filled]
+	7 -> 8
+	8 -> 10 [label=false]
+	8 -> 9
+	8 -> 9 [label=true]
+	node [color="#fab1a0" shape=parallelogram style=filled]
+	9 [label="print \"Test\""]
+	9 [label="print \"Test\"" color="#fab1a0" shape=parallelogram style=filled]
+	node [shape=diamond]
+	10 [label="a > b" color="#fdcb6e" shape=diamond style=filled]
+	9 -> 10
+	10 -> 12 [label=false]
+	10 -> 11 [label=true]
+	node [color="#fab1a0" shape=parallelogram style=filled]
+	11 [label="print \"Test\""]
+	11 [label="print \"Test\"" color="#fab1a0" shape=parallelogram style=filled]
+	node [shape=diamond]
+	12 [label="a > b" color="#fdcb6e" shape=diamond style=filled]
+	11 -> 12
+	12 -> 14 [label=false]
+	12 -> 13
+	12 -> 13 [label=true]
+	node [color="#fab1a0" shape=parallelogram style=filled]
+	13 [label="print \"Test\""]
+	13 [label="print \"Test\"" color="#fab1a0" shape=parallelogram style=filled]
+	node [shape=diamond]
+	14 [label="a > b" color="#fdcb6e" shape=diamond style=filled]
+	13 -> 14
+	14 -> 16 [label=false]
+	14 -> 15
+	14 -> 15 [label=true]
+	node [color="#fab1a0" shape=parallelogram style=filled]
+	15 [label="print \"Test\""]
+	15 [label="print \"Test\"" color="#fab1a0" shape=parallelogram style=filled]
+	node [shape=diamond]
+	16 [label="a > b" color="#fdcb6e" shape=diamond style=filled]
+	15 -> 16
+	16 -> 18 [label=false]
+	16 -> 17 [label=true]
+	node [color="#fab1a0" shape=parallelogram style=filled]
+	17 [label="print \"Test\""]
+	17 [label="print \"Test\"" color="#fab1a0" shape=parallelogram style=filled]
+	node [shape=diamond]
+	18 [label="a > b" color="#fdcb6e" shape=diamond style=filled]
+	17 -> 18
+	18 -> 20 [label=false]
+	18 -> 19
+	18 -> 19 [label=true]
+	node [color="#fab1a0" shape=parallelogram style=filled]
+	19 [label="print \"Test\""]
+	19 [label="print \"Test\"" color="#fab1a0" shape=parallelogram style=filled]
+	node [shape=diamond]
+	20 [label="a > b" color="#fdcb6e" shape=diamond style=filled]
+	19 -> 20
+	20 -> 22 [label=false]
+	20 -> 21
+	20 -> 21 [label=true]
+	node [color="#fab1a0" shape=parallelogram style=filled]
+	21 [label="print \"Test\""]
+	21 [label="print \"Test\"" color="#fab1a0" shape=parallelogram style=filled]
+	node [shape=diamond]
+	22 [label="a > b" color="#fdcb6e" shape=diamond style=filled]
+	21 -> 22
+	22 -> 24 [label=false]
+	22 -> 23 [label=true]
+	node [color="#fab1a0" shape=parallelogram style=filled]
+	23 [label="print \"Test\""]
+	23 [label="print \"Test\"" color="#fab1a0" shape=parallelogram style=filled]
+	node [shape=diamond]
+	24 [label="a > b" color="#fdcb6e" shape=diamond style=filled]
+	23 -> 24
+	24 -> 26 [label=false]
+	24 -> 25
+	24 -> 25 [label=true]
+	node [color="#fab1a0" shape=parallelogram style=filled]
+	25 [label="print \"Test\""]
+	25 [label="print \"Test\"" color="#fab1a0" shape=parallelogram style=filled]
+	node [shape=diamond]
+	26 [label="a > b" color="#fdcb6e" shape=diamond style=filled]
+	25 -> 26
+	26 -> 28 [label=false]
+	26 -> 27
+	26 -> 27 [label=true]
+	node [color="#fab1a0" shape=parallelogram style=filled]
+	27 [label="print \"Test\""]
+	27 [label="print \"Test\"" color="#fab1a0" shape=parallelogram style=filled]
+	node [shape=diamond]
+	28 [label="a > b" color="#fdcb6e" shape=diamond style=filled]
+	27 -> 28
+	28 -> 30 [label=false]
+	28 -> 29 [label=true]
+	node [color="#fab1a0" shape=parallelogram style=filled]
+	29 [label="print \"Test\""]
+	29 [label="print \"Test\"" color="#fab1a0" shape=parallelogram style=filled]
+	node [shape=diamond]
+	30 [label="a > b" color="#fdcb6e" shape=diamond style=filled]
+	29 -> 30
+	end [color="#55efc4" shape=oval style=filled]
+	30 -> end [label=false]
+	30 -> 31 [label=true]
+	node [color="#fab1a0" shape=parallelogram style=filled]
+	31 [label="print \"Test\""]
+	31 [label="print \"Test\"" color="#fab1a0" shape=parallelogram style=filled]
+	1 -> 0
+	1 -> 0
+	3 -> 2
+	3 -> 2
+	5 -> 4
+	5 -> 4
+	7 -> 6
+	7 -> 6
+	9 -> 8
+	9 -> 8
+	11 -> 10
+	11 -> 10
+	13 -> 12
+	13 -> 12
+	15 -> 14
+	15 -> 14
+	17 -> 16
+	17 -> 16
+	19 -> 18
+	19 -> 18
+	21 -> 20
+	21 -> 20
+	23 -> 22
+	23 -> 22
+	25 -> 24
+	25 -> 24
+	27 -> 26
+	27 -> 26
+	29 -> 28
+	29 -> 28
+	31 -> 30
+	31 -> 30
+}

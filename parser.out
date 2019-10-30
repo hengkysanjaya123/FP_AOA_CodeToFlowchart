@@ -1,0 +1,1290 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ELSEIF
+    EQUALS
+    OPERATOR
+    THEN
+
+Grammar
+
+Rule 0     S' -> statement
+Rule 1     statement -> s1 s2
+Rule 2     statement -> empty
+Rule 3     s1 -> var_declaration_statement
+Rule 4     s1 -> if_expression
+Rule 5     s1 -> io_statement
+Rule 6     s1 -> loop_expression
+Rule 7     s1 -> STRING SEMICOLON
+Rule 8     s1 -> empty
+Rule 9     s2 -> statement
+Rule 10    io_statement -> CIN RIGHTSHIFT STRING SEMICOLON
+Rule 11    io_statement -> COUT LEFTSHIFT STRING SEMICOLON
+Rule 12    var_declaration_statement -> IDENTIFIER STRING SEMICOLON
+Rule 13    loop_expression -> WHILE condition LCURLY statement RCURLY
+Rule 14    loop_expression -> FOR forcondition LCURLY statement RCURLY
+Rule 15    condition -> LPAR expression RPAR
+Rule 16    forcondition -> LPAR expression SEMICOLON expression SEMICOLON expression RPAR
+Rule 17    forcondition -> LPAR IDENTIFIER expression SEMICOLON expression SEMICOLON expression RPAR
+Rule 18    if_expression -> IF condition LCURLY statement RCURLY else_expression
+Rule 19    if_expression -> IF condition LCURLY statement RCURLY elseif_expression
+Rule 20    elseif_expression -> ELSE IF condition LCURLY statement RCURLY elseif_expression
+Rule 21    elseif_expression -> ELSE IF condition LCURLY statement RCURLY else_expression
+Rule 22    elseif_expression -> empty
+Rule 23    else_expression -> ELSE LCURLY statement RCURLY
+Rule 24    else_expression -> empty
+Rule 25    expression -> STRING
+Rule 26    expression -> ID
+Rule 27    expression -> empty
+Rule 28    empty -> <empty>
+
+Terminals, with rules where they appear
+
+CIN                  : 10
+COUT                 : 11
+ELSE                 : 20 21 23
+ELSEIF               : 
+EQUALS               : 
+FOR                  : 14
+ID                   : 26
+IDENTIFIER           : 12 17
+IF                   : 18 19 20 21
+LCURLY               : 13 14 18 19 20 21 23
+LEFTSHIFT            : 11
+LPAR                 : 15 16 17
+OPERATOR             : 
+RCURLY               : 13 14 18 19 20 21 23
+RIGHTSHIFT           : 10
+RPAR                 : 15 16 17
+SEMICOLON            : 7 10 11 12 16 16 17 17
+STRING               : 7 10 11 12 25
+THEN                 : 
+WHILE                : 13
+error                : 
+
+Nonterminals, with rules where they appear
+
+condition            : 13 18 19 20 21
+else_expression      : 18 21
+elseif_expression    : 19 20
+empty                : 2 8 22 24 27
+expression           : 15 16 16 16 17 17 17
+forcondition         : 14
+if_expression        : 4
+io_statement         : 5
+loop_expression      : 6
+s1                   : 1
+s2                   : 1
+statement            : 9 13 14 18 19 20 21 23 0
+var_declaration_statement : 3
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . statement
+    (1) statement -> . s1 s2
+    (2) statement -> . empty
+    (3) s1 -> . var_declaration_statement
+    (4) s1 -> . if_expression
+    (5) s1 -> . io_statement
+    (6) s1 -> . loop_expression
+    (7) s1 -> . STRING SEMICOLON
+    (8) s1 -> . empty
+    (28) empty -> .
+    (12) var_declaration_statement -> . IDENTIFIER STRING SEMICOLON
+    (18) if_expression -> . IF condition LCURLY statement RCURLY else_expression
+    (19) if_expression -> . IF condition LCURLY statement RCURLY elseif_expression
+    (10) io_statement -> . CIN RIGHTSHIFT STRING SEMICOLON
+    (11) io_statement -> . COUT LEFTSHIFT STRING SEMICOLON
+    (13) loop_expression -> . WHILE condition LCURLY statement RCURLY
+    (14) loop_expression -> . FOR forcondition LCURLY statement RCURLY
+
+  ! shift/reduce conflict for STRING resolved as shift
+  ! shift/reduce conflict for IDENTIFIER resolved as shift
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for CIN resolved as shift
+  ! shift/reduce conflict for COUT resolved as shift
+  ! shift/reduce conflict for WHILE resolved as shift
+  ! shift/reduce conflict for FOR resolved as shift
+    STRING          shift and go to state 8
+    $end            reduce using rule 28 (empty -> .)
+    IDENTIFIER      shift and go to state 9
+    IF              shift and go to state 10
+    CIN             shift and go to state 11
+    COUT            shift and go to state 12
+    WHILE           shift and go to state 13
+    FOR             shift and go to state 14
+
+  ! STRING          [ reduce using rule 28 (empty -> .) ]
+  ! IDENTIFIER      [ reduce using rule 28 (empty -> .) ]
+  ! IF              [ reduce using rule 28 (empty -> .) ]
+  ! CIN             [ reduce using rule 28 (empty -> .) ]
+  ! COUT            [ reduce using rule 28 (empty -> .) ]
+  ! WHILE           [ reduce using rule 28 (empty -> .) ]
+  ! FOR             [ reduce using rule 28 (empty -> .) ]
+
+    statement                      shift and go to state 1
+    s1                             shift and go to state 2
+    empty                          shift and go to state 3
+    var_declaration_statement      shift and go to state 4
+    if_expression                  shift and go to state 5
+    io_statement                   shift and go to state 6
+    loop_expression                shift and go to state 7
+
+state 1
+
+    (0) S' -> statement .
+
+
+
+state 2
+
+    (1) statement -> s1 . s2
+    (9) s2 -> . statement
+    (1) statement -> . s1 s2
+    (2) statement -> . empty
+    (3) s1 -> . var_declaration_statement
+    (4) s1 -> . if_expression
+    (5) s1 -> . io_statement
+    (6) s1 -> . loop_expression
+    (7) s1 -> . STRING SEMICOLON
+    (8) s1 -> . empty
+    (28) empty -> .
+    (12) var_declaration_statement -> . IDENTIFIER STRING SEMICOLON
+    (18) if_expression -> . IF condition LCURLY statement RCURLY else_expression
+    (19) if_expression -> . IF condition LCURLY statement RCURLY elseif_expression
+    (10) io_statement -> . CIN RIGHTSHIFT STRING SEMICOLON
+    (11) io_statement -> . COUT LEFTSHIFT STRING SEMICOLON
+    (13) loop_expression -> . WHILE condition LCURLY statement RCURLY
+    (14) loop_expression -> . FOR forcondition LCURLY statement RCURLY
+
+  ! shift/reduce conflict for STRING resolved as shift
+  ! shift/reduce conflict for IDENTIFIER resolved as shift
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for CIN resolved as shift
+  ! shift/reduce conflict for COUT resolved as shift
+  ! shift/reduce conflict for WHILE resolved as shift
+  ! shift/reduce conflict for FOR resolved as shift
+    STRING          shift and go to state 8
+    $end            reduce using rule 28 (empty -> .)
+    RCURLY          reduce using rule 28 (empty -> .)
+    IDENTIFIER      shift and go to state 9
+    IF              shift and go to state 10
+    CIN             shift and go to state 11
+    COUT            shift and go to state 12
+    WHILE           shift and go to state 13
+    FOR             shift and go to state 14
+
+  ! STRING          [ reduce using rule 28 (empty -> .) ]
+  ! IDENTIFIER      [ reduce using rule 28 (empty -> .) ]
+  ! IF              [ reduce using rule 28 (empty -> .) ]
+  ! CIN             [ reduce using rule 28 (empty -> .) ]
+  ! COUT            [ reduce using rule 28 (empty -> .) ]
+  ! WHILE           [ reduce using rule 28 (empty -> .) ]
+  ! FOR             [ reduce using rule 28 (empty -> .) ]
+
+    s1                             shift and go to state 2
+    s2                             shift and go to state 15
+    statement                      shift and go to state 16
+    empty                          shift and go to state 3
+    var_declaration_statement      shift and go to state 4
+    if_expression                  shift and go to state 5
+    io_statement                   shift and go to state 6
+    loop_expression                shift and go to state 7
+
+state 3
+
+    (2) statement -> empty .
+    (8) s1 -> empty .
+
+  ! reduce/reduce conflict for $end resolved using rule 2 (statement -> empty .)
+  ! reduce/reduce conflict for RCURLY resolved using rule 2 (statement -> empty .)
+    $end            reduce using rule 2 (statement -> empty .)
+    RCURLY          reduce using rule 2 (statement -> empty .)
+    STRING          reduce using rule 8 (s1 -> empty .)
+    IDENTIFIER      reduce using rule 8 (s1 -> empty .)
+    IF              reduce using rule 8 (s1 -> empty .)
+    CIN             reduce using rule 8 (s1 -> empty .)
+    COUT            reduce using rule 8 (s1 -> empty .)
+    WHILE           reduce using rule 8 (s1 -> empty .)
+    FOR             reduce using rule 8 (s1 -> empty .)
+
+  ! $end            [ reduce using rule 8 (s1 -> empty .) ]
+  ! RCURLY          [ reduce using rule 8 (s1 -> empty .) ]
+
+
+state 4
+
+    (3) s1 -> var_declaration_statement .
+
+    STRING          reduce using rule 3 (s1 -> var_declaration_statement .)
+    IDENTIFIER      reduce using rule 3 (s1 -> var_declaration_statement .)
+    IF              reduce using rule 3 (s1 -> var_declaration_statement .)
+    CIN             reduce using rule 3 (s1 -> var_declaration_statement .)
+    COUT            reduce using rule 3 (s1 -> var_declaration_statement .)
+    WHILE           reduce using rule 3 (s1 -> var_declaration_statement .)
+    FOR             reduce using rule 3 (s1 -> var_declaration_statement .)
+    $end            reduce using rule 3 (s1 -> var_declaration_statement .)
+    RCURLY          reduce using rule 3 (s1 -> var_declaration_statement .)
+
+
+state 5
+
+    (4) s1 -> if_expression .
+
+    STRING          reduce using rule 4 (s1 -> if_expression .)
+    IDENTIFIER      reduce using rule 4 (s1 -> if_expression .)
+    IF              reduce using rule 4 (s1 -> if_expression .)
+    CIN             reduce using rule 4 (s1 -> if_expression .)
+    COUT            reduce using rule 4 (s1 -> if_expression .)
+    WHILE           reduce using rule 4 (s1 -> if_expression .)
+    FOR             reduce using rule 4 (s1 -> if_expression .)
+    $end            reduce using rule 4 (s1 -> if_expression .)
+    RCURLY          reduce using rule 4 (s1 -> if_expression .)
+
+
+state 6
+
+    (5) s1 -> io_statement .
+
+    STRING          reduce using rule 5 (s1 -> io_statement .)
+    IDENTIFIER      reduce using rule 5 (s1 -> io_statement .)
+    IF              reduce using rule 5 (s1 -> io_statement .)
+    CIN             reduce using rule 5 (s1 -> io_statement .)
+    COUT            reduce using rule 5 (s1 -> io_statement .)
+    WHILE           reduce using rule 5 (s1 -> io_statement .)
+    FOR             reduce using rule 5 (s1 -> io_statement .)
+    $end            reduce using rule 5 (s1 -> io_statement .)
+    RCURLY          reduce using rule 5 (s1 -> io_statement .)
+
+
+state 7
+
+    (6) s1 -> loop_expression .
+
+    STRING          reduce using rule 6 (s1 -> loop_expression .)
+    IDENTIFIER      reduce using rule 6 (s1 -> loop_expression .)
+    IF              reduce using rule 6 (s1 -> loop_expression .)
+    CIN             reduce using rule 6 (s1 -> loop_expression .)
+    COUT            reduce using rule 6 (s1 -> loop_expression .)
+    WHILE           reduce using rule 6 (s1 -> loop_expression .)
+    FOR             reduce using rule 6 (s1 -> loop_expression .)
+    $end            reduce using rule 6 (s1 -> loop_expression .)
+    RCURLY          reduce using rule 6 (s1 -> loop_expression .)
+
+
+state 8
+
+    (7) s1 -> STRING . SEMICOLON
+
+    SEMICOLON       shift and go to state 17
+
+
+state 9
+
+    (12) var_declaration_statement -> IDENTIFIER . STRING SEMICOLON
+
+    STRING          shift and go to state 18
+
+
+state 10
+
+    (18) if_expression -> IF . condition LCURLY statement RCURLY else_expression
+    (19) if_expression -> IF . condition LCURLY statement RCURLY elseif_expression
+    (15) condition -> . LPAR expression RPAR
+
+    LPAR            shift and go to state 20
+
+    condition                      shift and go to state 19
+
+state 11
+
+    (10) io_statement -> CIN . RIGHTSHIFT STRING SEMICOLON
+
+    RIGHTSHIFT      shift and go to state 21
+
+
+state 12
+
+    (11) io_statement -> COUT . LEFTSHIFT STRING SEMICOLON
+
+    LEFTSHIFT       shift and go to state 22
+
+
+state 13
+
+    (13) loop_expression -> WHILE . condition LCURLY statement RCURLY
+    (15) condition -> . LPAR expression RPAR
+
+    LPAR            shift and go to state 20
+
+    condition                      shift and go to state 23
+
+state 14
+
+    (14) loop_expression -> FOR . forcondition LCURLY statement RCURLY
+    (16) forcondition -> . LPAR expression SEMICOLON expression SEMICOLON expression RPAR
+    (17) forcondition -> . LPAR IDENTIFIER expression SEMICOLON expression SEMICOLON expression RPAR
+
+    LPAR            shift and go to state 25
+
+    forcondition                   shift and go to state 24
+
+state 15
+
+    (1) statement -> s1 s2 .
+
+    $end            reduce using rule 1 (statement -> s1 s2 .)
+    RCURLY          reduce using rule 1 (statement -> s1 s2 .)
+
+
+state 16
+
+    (9) s2 -> statement .
+
+    $end            reduce using rule 9 (s2 -> statement .)
+    RCURLY          reduce using rule 9 (s2 -> statement .)
+
+
+state 17
+
+    (7) s1 -> STRING SEMICOLON .
+
+    STRING          reduce using rule 7 (s1 -> STRING SEMICOLON .)
+    IDENTIFIER      reduce using rule 7 (s1 -> STRING SEMICOLON .)
+    IF              reduce using rule 7 (s1 -> STRING SEMICOLON .)
+    CIN             reduce using rule 7 (s1 -> STRING SEMICOLON .)
+    COUT            reduce using rule 7 (s1 -> STRING SEMICOLON .)
+    WHILE           reduce using rule 7 (s1 -> STRING SEMICOLON .)
+    FOR             reduce using rule 7 (s1 -> STRING SEMICOLON .)
+    $end            reduce using rule 7 (s1 -> STRING SEMICOLON .)
+    RCURLY          reduce using rule 7 (s1 -> STRING SEMICOLON .)
+
+
+state 18
+
+    (12) var_declaration_statement -> IDENTIFIER STRING . SEMICOLON
+
+    SEMICOLON       shift and go to state 26
+
+
+state 19
+
+    (18) if_expression -> IF condition . LCURLY statement RCURLY else_expression
+    (19) if_expression -> IF condition . LCURLY statement RCURLY elseif_expression
+
+    LCURLY          shift and go to state 27
+
+
+state 20
+
+    (15) condition -> LPAR . expression RPAR
+    (25) expression -> . STRING
+    (26) expression -> . ID
+    (27) expression -> . empty
+    (28) empty -> .
+
+    STRING          shift and go to state 29
+    ID              shift and go to state 30
+    RPAR            reduce using rule 28 (empty -> .)
+
+    expression                     shift and go to state 28
+    empty                          shift and go to state 31
+
+state 21
+
+    (10) io_statement -> CIN RIGHTSHIFT . STRING SEMICOLON
+
+    STRING          shift and go to state 32
+
+
+state 22
+
+    (11) io_statement -> COUT LEFTSHIFT . STRING SEMICOLON
+
+    STRING          shift and go to state 33
+
+
+state 23
+
+    (13) loop_expression -> WHILE condition . LCURLY statement RCURLY
+
+    LCURLY          shift and go to state 34
+
+
+state 24
+
+    (14) loop_expression -> FOR forcondition . LCURLY statement RCURLY
+
+    LCURLY          shift and go to state 35
+
+
+state 25
+
+    (16) forcondition -> LPAR . expression SEMICOLON expression SEMICOLON expression RPAR
+    (17) forcondition -> LPAR . IDENTIFIER expression SEMICOLON expression SEMICOLON expression RPAR
+    (25) expression -> . STRING
+    (26) expression -> . ID
+    (27) expression -> . empty
+    (28) empty -> .
+
+    IDENTIFIER      shift and go to state 37
+    STRING          shift and go to state 29
+    ID              shift and go to state 30
+    SEMICOLON       reduce using rule 28 (empty -> .)
+
+    expression                     shift and go to state 36
+    empty                          shift and go to state 31
+
+state 26
+
+    (12) var_declaration_statement -> IDENTIFIER STRING SEMICOLON .
+
+    STRING          reduce using rule 12 (var_declaration_statement -> IDENTIFIER STRING SEMICOLON .)
+    IDENTIFIER      reduce using rule 12 (var_declaration_statement -> IDENTIFIER STRING SEMICOLON .)
+    IF              reduce using rule 12 (var_declaration_statement -> IDENTIFIER STRING SEMICOLON .)
+    CIN             reduce using rule 12 (var_declaration_statement -> IDENTIFIER STRING SEMICOLON .)
+    COUT            reduce using rule 12 (var_declaration_statement -> IDENTIFIER STRING SEMICOLON .)
+    WHILE           reduce using rule 12 (var_declaration_statement -> IDENTIFIER STRING SEMICOLON .)
+    FOR             reduce using rule 12 (var_declaration_statement -> IDENTIFIER STRING SEMICOLON .)
+    $end            reduce using rule 12 (var_declaration_statement -> IDENTIFIER STRING SEMICOLON .)
+    RCURLY          reduce using rule 12 (var_declaration_statement -> IDENTIFIER STRING SEMICOLON .)
+
+
+state 27
+
+    (18) if_expression -> IF condition LCURLY . statement RCURLY else_expression
+    (19) if_expression -> IF condition LCURLY . statement RCURLY elseif_expression
+    (1) statement -> . s1 s2
+    (2) statement -> . empty
+    (3) s1 -> . var_declaration_statement
+    (4) s1 -> . if_expression
+    (5) s1 -> . io_statement
+    (6) s1 -> . loop_expression
+    (7) s1 -> . STRING SEMICOLON
+    (8) s1 -> . empty
+    (28) empty -> .
+    (12) var_declaration_statement -> . IDENTIFIER STRING SEMICOLON
+    (18) if_expression -> . IF condition LCURLY statement RCURLY else_expression
+    (19) if_expression -> . IF condition LCURLY statement RCURLY elseif_expression
+    (10) io_statement -> . CIN RIGHTSHIFT STRING SEMICOLON
+    (11) io_statement -> . COUT LEFTSHIFT STRING SEMICOLON
+    (13) loop_expression -> . WHILE condition LCURLY statement RCURLY
+    (14) loop_expression -> . FOR forcondition LCURLY statement RCURLY
+
+  ! shift/reduce conflict for STRING resolved as shift
+  ! shift/reduce conflict for IDENTIFIER resolved as shift
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for CIN resolved as shift
+  ! shift/reduce conflict for COUT resolved as shift
+  ! shift/reduce conflict for WHILE resolved as shift
+  ! shift/reduce conflict for FOR resolved as shift
+    STRING          shift and go to state 8
+    RCURLY          reduce using rule 28 (empty -> .)
+    IDENTIFIER      shift and go to state 9
+    IF              shift and go to state 10
+    CIN             shift and go to state 11
+    COUT            shift and go to state 12
+    WHILE           shift and go to state 13
+    FOR             shift and go to state 14
+
+  ! STRING          [ reduce using rule 28 (empty -> .) ]
+  ! IDENTIFIER      [ reduce using rule 28 (empty -> .) ]
+  ! IF              [ reduce using rule 28 (empty -> .) ]
+  ! CIN             [ reduce using rule 28 (empty -> .) ]
+  ! COUT            [ reduce using rule 28 (empty -> .) ]
+  ! WHILE           [ reduce using rule 28 (empty -> .) ]
+  ! FOR             [ reduce using rule 28 (empty -> .) ]
+
+    statement                      shift and go to state 38
+    s1                             shift and go to state 2
+    empty                          shift and go to state 3
+    var_declaration_statement      shift and go to state 4
+    if_expression                  shift and go to state 5
+    io_statement                   shift and go to state 6
+    loop_expression                shift and go to state 7
+
+state 28
+
+    (15) condition -> LPAR expression . RPAR
+
+    RPAR            shift and go to state 39
+
+
+state 29
+
+    (25) expression -> STRING .
+
+    RPAR            reduce using rule 25 (expression -> STRING .)
+    SEMICOLON       reduce using rule 25 (expression -> STRING .)
+
+
+state 30
+
+    (26) expression -> ID .
+
+    RPAR            reduce using rule 26 (expression -> ID .)
+    SEMICOLON       reduce using rule 26 (expression -> ID .)
+
+
+state 31
+
+    (27) expression -> empty .
+
+    RPAR            reduce using rule 27 (expression -> empty .)
+    SEMICOLON       reduce using rule 27 (expression -> empty .)
+
+
+state 32
+
+    (10) io_statement -> CIN RIGHTSHIFT STRING . SEMICOLON
+
+    SEMICOLON       shift and go to state 40
+
+
+state 33
+
+    (11) io_statement -> COUT LEFTSHIFT STRING . SEMICOLON
+
+    SEMICOLON       shift and go to state 41
+
+
+state 34
+
+    (13) loop_expression -> WHILE condition LCURLY . statement RCURLY
+    (1) statement -> . s1 s2
+    (2) statement -> . empty
+    (3) s1 -> . var_declaration_statement
+    (4) s1 -> . if_expression
+    (5) s1 -> . io_statement
+    (6) s1 -> . loop_expression
+    (7) s1 -> . STRING SEMICOLON
+    (8) s1 -> . empty
+    (28) empty -> .
+    (12) var_declaration_statement -> . IDENTIFIER STRING SEMICOLON
+    (18) if_expression -> . IF condition LCURLY statement RCURLY else_expression
+    (19) if_expression -> . IF condition LCURLY statement RCURLY elseif_expression
+    (10) io_statement -> . CIN RIGHTSHIFT STRING SEMICOLON
+    (11) io_statement -> . COUT LEFTSHIFT STRING SEMICOLON
+    (13) loop_expression -> . WHILE condition LCURLY statement RCURLY
+    (14) loop_expression -> . FOR forcondition LCURLY statement RCURLY
+
+  ! shift/reduce conflict for STRING resolved as shift
+  ! shift/reduce conflict for IDENTIFIER resolved as shift
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for CIN resolved as shift
+  ! shift/reduce conflict for COUT resolved as shift
+  ! shift/reduce conflict for WHILE resolved as shift
+  ! shift/reduce conflict for FOR resolved as shift
+    STRING          shift and go to state 8
+    RCURLY          reduce using rule 28 (empty -> .)
+    IDENTIFIER      shift and go to state 9
+    IF              shift and go to state 10
+    CIN             shift and go to state 11
+    COUT            shift and go to state 12
+    WHILE           shift and go to state 13
+    FOR             shift and go to state 14
+
+  ! STRING          [ reduce using rule 28 (empty -> .) ]
+  ! IDENTIFIER      [ reduce using rule 28 (empty -> .) ]
+  ! IF              [ reduce using rule 28 (empty -> .) ]
+  ! CIN             [ reduce using rule 28 (empty -> .) ]
+  ! COUT            [ reduce using rule 28 (empty -> .) ]
+  ! WHILE           [ reduce using rule 28 (empty -> .) ]
+  ! FOR             [ reduce using rule 28 (empty -> .) ]
+
+    statement                      shift and go to state 42
+    s1                             shift and go to state 2
+    empty                          shift and go to state 3
+    var_declaration_statement      shift and go to state 4
+    if_expression                  shift and go to state 5
+    io_statement                   shift and go to state 6
+    loop_expression                shift and go to state 7
+
+state 35
+
+    (14) loop_expression -> FOR forcondition LCURLY . statement RCURLY
+    (1) statement -> . s1 s2
+    (2) statement -> . empty
+    (3) s1 -> . var_declaration_statement
+    (4) s1 -> . if_expression
+    (5) s1 -> . io_statement
+    (6) s1 -> . loop_expression
+    (7) s1 -> . STRING SEMICOLON
+    (8) s1 -> . empty
+    (28) empty -> .
+    (12) var_declaration_statement -> . IDENTIFIER STRING SEMICOLON
+    (18) if_expression -> . IF condition LCURLY statement RCURLY else_expression
+    (19) if_expression -> . IF condition LCURLY statement RCURLY elseif_expression
+    (10) io_statement -> . CIN RIGHTSHIFT STRING SEMICOLON
+    (11) io_statement -> . COUT LEFTSHIFT STRING SEMICOLON
+    (13) loop_expression -> . WHILE condition LCURLY statement RCURLY
+    (14) loop_expression -> . FOR forcondition LCURLY statement RCURLY
+
+  ! shift/reduce conflict for STRING resolved as shift
+  ! shift/reduce conflict for IDENTIFIER resolved as shift
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for CIN resolved as shift
+  ! shift/reduce conflict for COUT resolved as shift
+  ! shift/reduce conflict for WHILE resolved as shift
+  ! shift/reduce conflict for FOR resolved as shift
+    STRING          shift and go to state 8
+    RCURLY          reduce using rule 28 (empty -> .)
+    IDENTIFIER      shift and go to state 9
+    IF              shift and go to state 10
+    CIN             shift and go to state 11
+    COUT            shift and go to state 12
+    WHILE           shift and go to state 13
+    FOR             shift and go to state 14
+
+  ! STRING          [ reduce using rule 28 (empty -> .) ]
+  ! IDENTIFIER      [ reduce using rule 28 (empty -> .) ]
+  ! IF              [ reduce using rule 28 (empty -> .) ]
+  ! CIN             [ reduce using rule 28 (empty -> .) ]
+  ! COUT            [ reduce using rule 28 (empty -> .) ]
+  ! WHILE           [ reduce using rule 28 (empty -> .) ]
+  ! FOR             [ reduce using rule 28 (empty -> .) ]
+
+    statement                      shift and go to state 43
+    s1                             shift and go to state 2
+    empty                          shift and go to state 3
+    var_declaration_statement      shift and go to state 4
+    if_expression                  shift and go to state 5
+    io_statement                   shift and go to state 6
+    loop_expression                shift and go to state 7
+
+state 36
+
+    (16) forcondition -> LPAR expression . SEMICOLON expression SEMICOLON expression RPAR
+
+    SEMICOLON       shift and go to state 44
+
+
+state 37
+
+    (17) forcondition -> LPAR IDENTIFIER . expression SEMICOLON expression SEMICOLON expression RPAR
+    (25) expression -> . STRING
+    (26) expression -> . ID
+    (27) expression -> . empty
+    (28) empty -> .
+
+    STRING          shift and go to state 29
+    ID              shift and go to state 30
+    SEMICOLON       reduce using rule 28 (empty -> .)
+
+    expression                     shift and go to state 45
+    empty                          shift and go to state 31
+
+state 38
+
+    (18) if_expression -> IF condition LCURLY statement . RCURLY else_expression
+    (19) if_expression -> IF condition LCURLY statement . RCURLY elseif_expression
+
+    RCURLY          shift and go to state 46
+
+
+state 39
+
+    (15) condition -> LPAR expression RPAR .
+
+    LCURLY          reduce using rule 15 (condition -> LPAR expression RPAR .)
+
+
+state 40
+
+    (10) io_statement -> CIN RIGHTSHIFT STRING SEMICOLON .
+
+    STRING          reduce using rule 10 (io_statement -> CIN RIGHTSHIFT STRING SEMICOLON .)
+    IDENTIFIER      reduce using rule 10 (io_statement -> CIN RIGHTSHIFT STRING SEMICOLON .)
+    IF              reduce using rule 10 (io_statement -> CIN RIGHTSHIFT STRING SEMICOLON .)
+    CIN             reduce using rule 10 (io_statement -> CIN RIGHTSHIFT STRING SEMICOLON .)
+    COUT            reduce using rule 10 (io_statement -> CIN RIGHTSHIFT STRING SEMICOLON .)
+    WHILE           reduce using rule 10 (io_statement -> CIN RIGHTSHIFT STRING SEMICOLON .)
+    FOR             reduce using rule 10 (io_statement -> CIN RIGHTSHIFT STRING SEMICOLON .)
+    $end            reduce using rule 10 (io_statement -> CIN RIGHTSHIFT STRING SEMICOLON .)
+    RCURLY          reduce using rule 10 (io_statement -> CIN RIGHTSHIFT STRING SEMICOLON .)
+
+
+state 41
+
+    (11) io_statement -> COUT LEFTSHIFT STRING SEMICOLON .
+
+    STRING          reduce using rule 11 (io_statement -> COUT LEFTSHIFT STRING SEMICOLON .)
+    IDENTIFIER      reduce using rule 11 (io_statement -> COUT LEFTSHIFT STRING SEMICOLON .)
+    IF              reduce using rule 11 (io_statement -> COUT LEFTSHIFT STRING SEMICOLON .)
+    CIN             reduce using rule 11 (io_statement -> COUT LEFTSHIFT STRING SEMICOLON .)
+    COUT            reduce using rule 11 (io_statement -> COUT LEFTSHIFT STRING SEMICOLON .)
+    WHILE           reduce using rule 11 (io_statement -> COUT LEFTSHIFT STRING SEMICOLON .)
+    FOR             reduce using rule 11 (io_statement -> COUT LEFTSHIFT STRING SEMICOLON .)
+    $end            reduce using rule 11 (io_statement -> COUT LEFTSHIFT STRING SEMICOLON .)
+    RCURLY          reduce using rule 11 (io_statement -> COUT LEFTSHIFT STRING SEMICOLON .)
+
+
+state 42
+
+    (13) loop_expression -> WHILE condition LCURLY statement . RCURLY
+
+    RCURLY          shift and go to state 47
+
+
+state 43
+
+    (14) loop_expression -> FOR forcondition LCURLY statement . RCURLY
+
+    RCURLY          shift and go to state 48
+
+
+state 44
+
+    (16) forcondition -> LPAR expression SEMICOLON . expression SEMICOLON expression RPAR
+    (25) expression -> . STRING
+    (26) expression -> . ID
+    (27) expression -> . empty
+    (28) empty -> .
+
+    STRING          shift and go to state 29
+    ID              shift and go to state 30
+    SEMICOLON       reduce using rule 28 (empty -> .)
+
+    expression                     shift and go to state 49
+    empty                          shift and go to state 31
+
+state 45
+
+    (17) forcondition -> LPAR IDENTIFIER expression . SEMICOLON expression SEMICOLON expression RPAR
+
+    SEMICOLON       shift and go to state 50
+
+
+state 46
+
+    (18) if_expression -> IF condition LCURLY statement RCURLY . else_expression
+    (19) if_expression -> IF condition LCURLY statement RCURLY . elseif_expression
+    (23) else_expression -> . ELSE LCURLY statement RCURLY
+    (24) else_expression -> . empty
+    (20) elseif_expression -> . ELSE IF condition LCURLY statement RCURLY elseif_expression
+    (21) elseif_expression -> . ELSE IF condition LCURLY statement RCURLY else_expression
+    (22) elseif_expression -> . empty
+    (28) empty -> .
+
+    ELSE            shift and go to state 53
+    STRING          reduce using rule 28 (empty -> .)
+    IDENTIFIER      reduce using rule 28 (empty -> .)
+    IF              reduce using rule 28 (empty -> .)
+    CIN             reduce using rule 28 (empty -> .)
+    COUT            reduce using rule 28 (empty -> .)
+    WHILE           reduce using rule 28 (empty -> .)
+    FOR             reduce using rule 28 (empty -> .)
+    $end            reduce using rule 28 (empty -> .)
+    RCURLY          reduce using rule 28 (empty -> .)
+
+    else_expression                shift and go to state 51
+    elseif_expression              shift and go to state 52
+    empty                          shift and go to state 54
+
+state 47
+
+    (13) loop_expression -> WHILE condition LCURLY statement RCURLY .
+
+    STRING          reduce using rule 13 (loop_expression -> WHILE condition LCURLY statement RCURLY .)
+    IDENTIFIER      reduce using rule 13 (loop_expression -> WHILE condition LCURLY statement RCURLY .)
+    IF              reduce using rule 13 (loop_expression -> WHILE condition LCURLY statement RCURLY .)
+    CIN             reduce using rule 13 (loop_expression -> WHILE condition LCURLY statement RCURLY .)
+    COUT            reduce using rule 13 (loop_expression -> WHILE condition LCURLY statement RCURLY .)
+    WHILE           reduce using rule 13 (loop_expression -> WHILE condition LCURLY statement RCURLY .)
+    FOR             reduce using rule 13 (loop_expression -> WHILE condition LCURLY statement RCURLY .)
+    $end            reduce using rule 13 (loop_expression -> WHILE condition LCURLY statement RCURLY .)
+    RCURLY          reduce using rule 13 (loop_expression -> WHILE condition LCURLY statement RCURLY .)
+
+
+state 48
+
+    (14) loop_expression -> FOR forcondition LCURLY statement RCURLY .
+
+    STRING          reduce using rule 14 (loop_expression -> FOR forcondition LCURLY statement RCURLY .)
+    IDENTIFIER      reduce using rule 14 (loop_expression -> FOR forcondition LCURLY statement RCURLY .)
+    IF              reduce using rule 14 (loop_expression -> FOR forcondition LCURLY statement RCURLY .)
+    CIN             reduce using rule 14 (loop_expression -> FOR forcondition LCURLY statement RCURLY .)
+    COUT            reduce using rule 14 (loop_expression -> FOR forcondition LCURLY statement RCURLY .)
+    WHILE           reduce using rule 14 (loop_expression -> FOR forcondition LCURLY statement RCURLY .)
+    FOR             reduce using rule 14 (loop_expression -> FOR forcondition LCURLY statement RCURLY .)
+    $end            reduce using rule 14 (loop_expression -> FOR forcondition LCURLY statement RCURLY .)
+    RCURLY          reduce using rule 14 (loop_expression -> FOR forcondition LCURLY statement RCURLY .)
+
+
+state 49
+
+    (16) forcondition -> LPAR expression SEMICOLON expression . SEMICOLON expression RPAR
+
+    SEMICOLON       shift and go to state 55
+
+
+state 50
+
+    (17) forcondition -> LPAR IDENTIFIER expression SEMICOLON . expression SEMICOLON expression RPAR
+    (25) expression -> . STRING
+    (26) expression -> . ID
+    (27) expression -> . empty
+    (28) empty -> .
+
+    STRING          shift and go to state 29
+    ID              shift and go to state 30
+    SEMICOLON       reduce using rule 28 (empty -> .)
+
+    expression                     shift and go to state 56
+    empty                          shift and go to state 31
+
+state 51
+
+    (18) if_expression -> IF condition LCURLY statement RCURLY else_expression .
+
+    STRING          reduce using rule 18 (if_expression -> IF condition LCURLY statement RCURLY else_expression .)
+    IDENTIFIER      reduce using rule 18 (if_expression -> IF condition LCURLY statement RCURLY else_expression .)
+    IF              reduce using rule 18 (if_expression -> IF condition LCURLY statement RCURLY else_expression .)
+    CIN             reduce using rule 18 (if_expression -> IF condition LCURLY statement RCURLY else_expression .)
+    COUT            reduce using rule 18 (if_expression -> IF condition LCURLY statement RCURLY else_expression .)
+    WHILE           reduce using rule 18 (if_expression -> IF condition LCURLY statement RCURLY else_expression .)
+    FOR             reduce using rule 18 (if_expression -> IF condition LCURLY statement RCURLY else_expression .)
+    $end            reduce using rule 18 (if_expression -> IF condition LCURLY statement RCURLY else_expression .)
+    RCURLY          reduce using rule 18 (if_expression -> IF condition LCURLY statement RCURLY else_expression .)
+
+
+state 52
+
+    (19) if_expression -> IF condition LCURLY statement RCURLY elseif_expression .
+
+    STRING          reduce using rule 19 (if_expression -> IF condition LCURLY statement RCURLY elseif_expression .)
+    IDENTIFIER      reduce using rule 19 (if_expression -> IF condition LCURLY statement RCURLY elseif_expression .)
+    IF              reduce using rule 19 (if_expression -> IF condition LCURLY statement RCURLY elseif_expression .)
+    CIN             reduce using rule 19 (if_expression -> IF condition LCURLY statement RCURLY elseif_expression .)
+    COUT            reduce using rule 19 (if_expression -> IF condition LCURLY statement RCURLY elseif_expression .)
+    WHILE           reduce using rule 19 (if_expression -> IF condition LCURLY statement RCURLY elseif_expression .)
+    FOR             reduce using rule 19 (if_expression -> IF condition LCURLY statement RCURLY elseif_expression .)
+    $end            reduce using rule 19 (if_expression -> IF condition LCURLY statement RCURLY elseif_expression .)
+    RCURLY          reduce using rule 19 (if_expression -> IF condition LCURLY statement RCURLY elseif_expression .)
+
+
+state 53
+
+    (23) else_expression -> ELSE . LCURLY statement RCURLY
+    (20) elseif_expression -> ELSE . IF condition LCURLY statement RCURLY elseif_expression
+    (21) elseif_expression -> ELSE . IF condition LCURLY statement RCURLY else_expression
+
+    LCURLY          shift and go to state 57
+    IF              shift and go to state 58
+
+
+state 54
+
+    (24) else_expression -> empty .
+    (22) elseif_expression -> empty .
+
+  ! reduce/reduce conflict for STRING resolved using rule 22 (elseif_expression -> empty .)
+  ! reduce/reduce conflict for IDENTIFIER resolved using rule 22 (elseif_expression -> empty .)
+  ! reduce/reduce conflict for IF resolved using rule 22 (elseif_expression -> empty .)
+  ! reduce/reduce conflict for CIN resolved using rule 22 (elseif_expression -> empty .)
+  ! reduce/reduce conflict for COUT resolved using rule 22 (elseif_expression -> empty .)
+  ! reduce/reduce conflict for WHILE resolved using rule 22 (elseif_expression -> empty .)
+  ! reduce/reduce conflict for FOR resolved using rule 22 (elseif_expression -> empty .)
+  ! reduce/reduce conflict for $end resolved using rule 22 (elseif_expression -> empty .)
+  ! reduce/reduce conflict for RCURLY resolved using rule 22 (elseif_expression -> empty .)
+    STRING          reduce using rule 22 (elseif_expression -> empty .)
+    IDENTIFIER      reduce using rule 22 (elseif_expression -> empty .)
+    IF              reduce using rule 22 (elseif_expression -> empty .)
+    CIN             reduce using rule 22 (elseif_expression -> empty .)
+    COUT            reduce using rule 22 (elseif_expression -> empty .)
+    WHILE           reduce using rule 22 (elseif_expression -> empty .)
+    FOR             reduce using rule 22 (elseif_expression -> empty .)
+    $end            reduce using rule 22 (elseif_expression -> empty .)
+    RCURLY          reduce using rule 22 (elseif_expression -> empty .)
+
+  ! STRING          [ reduce using rule 24 (else_expression -> empty .) ]
+  ! IDENTIFIER      [ reduce using rule 24 (else_expression -> empty .) ]
+  ! IF              [ reduce using rule 24 (else_expression -> empty .) ]
+  ! CIN             [ reduce using rule 24 (else_expression -> empty .) ]
+  ! COUT            [ reduce using rule 24 (else_expression -> empty .) ]
+  ! WHILE           [ reduce using rule 24 (else_expression -> empty .) ]
+  ! FOR             [ reduce using rule 24 (else_expression -> empty .) ]
+  ! $end            [ reduce using rule 24 (else_expression -> empty .) ]
+  ! RCURLY          [ reduce using rule 24 (else_expression -> empty .) ]
+
+
+state 55
+
+    (16) forcondition -> LPAR expression SEMICOLON expression SEMICOLON . expression RPAR
+    (25) expression -> . STRING
+    (26) expression -> . ID
+    (27) expression -> . empty
+    (28) empty -> .
+
+    STRING          shift and go to state 29
+    ID              shift and go to state 30
+    RPAR            reduce using rule 28 (empty -> .)
+
+    expression                     shift and go to state 59
+    empty                          shift and go to state 31
+
+state 56
+
+    (17) forcondition -> LPAR IDENTIFIER expression SEMICOLON expression . SEMICOLON expression RPAR
+
+    SEMICOLON       shift and go to state 60
+
+
+state 57
+
+    (23) else_expression -> ELSE LCURLY . statement RCURLY
+    (1) statement -> . s1 s2
+    (2) statement -> . empty
+    (3) s1 -> . var_declaration_statement
+    (4) s1 -> . if_expression
+    (5) s1 -> . io_statement
+    (6) s1 -> . loop_expression
+    (7) s1 -> . STRING SEMICOLON
+    (8) s1 -> . empty
+    (28) empty -> .
+    (12) var_declaration_statement -> . IDENTIFIER STRING SEMICOLON
+    (18) if_expression -> . IF condition LCURLY statement RCURLY else_expression
+    (19) if_expression -> . IF condition LCURLY statement RCURLY elseif_expression
+    (10) io_statement -> . CIN RIGHTSHIFT STRING SEMICOLON
+    (11) io_statement -> . COUT LEFTSHIFT STRING SEMICOLON
+    (13) loop_expression -> . WHILE condition LCURLY statement RCURLY
+    (14) loop_expression -> . FOR forcondition LCURLY statement RCURLY
+
+  ! shift/reduce conflict for STRING resolved as shift
+  ! shift/reduce conflict for IDENTIFIER resolved as shift
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for CIN resolved as shift
+  ! shift/reduce conflict for COUT resolved as shift
+  ! shift/reduce conflict for WHILE resolved as shift
+  ! shift/reduce conflict for FOR resolved as shift
+    STRING          shift and go to state 8
+    RCURLY          reduce using rule 28 (empty -> .)
+    IDENTIFIER      shift and go to state 9
+    IF              shift and go to state 10
+    CIN             shift and go to state 11
+    COUT            shift and go to state 12
+    WHILE           shift and go to state 13
+    FOR             shift and go to state 14
+
+  ! STRING          [ reduce using rule 28 (empty -> .) ]
+  ! IDENTIFIER      [ reduce using rule 28 (empty -> .) ]
+  ! IF              [ reduce using rule 28 (empty -> .) ]
+  ! CIN             [ reduce using rule 28 (empty -> .) ]
+  ! COUT            [ reduce using rule 28 (empty -> .) ]
+  ! WHILE           [ reduce using rule 28 (empty -> .) ]
+  ! FOR             [ reduce using rule 28 (empty -> .) ]
+
+    statement                      shift and go to state 61
+    s1                             shift and go to state 2
+    empty                          shift and go to state 3
+    var_declaration_statement      shift and go to state 4
+    if_expression                  shift and go to state 5
+    io_statement                   shift and go to state 6
+    loop_expression                shift and go to state 7
+
+state 58
+
+    (20) elseif_expression -> ELSE IF . condition LCURLY statement RCURLY elseif_expression
+    (21) elseif_expression -> ELSE IF . condition LCURLY statement RCURLY else_expression
+    (15) condition -> . LPAR expression RPAR
+
+    LPAR            shift and go to state 20
+
+    condition                      shift and go to state 62
+
+state 59
+
+    (16) forcondition -> LPAR expression SEMICOLON expression SEMICOLON expression . RPAR
+
+    RPAR            shift and go to state 63
+
+
+state 60
+
+    (17) forcondition -> LPAR IDENTIFIER expression SEMICOLON expression SEMICOLON . expression RPAR
+    (25) expression -> . STRING
+    (26) expression -> . ID
+    (27) expression -> . empty
+    (28) empty -> .
+
+    STRING          shift and go to state 29
+    ID              shift and go to state 30
+    RPAR            reduce using rule 28 (empty -> .)
+
+    expression                     shift and go to state 64
+    empty                          shift and go to state 31
+
+state 61
+
+    (23) else_expression -> ELSE LCURLY statement . RCURLY
+
+    RCURLY          shift and go to state 65
+
+
+state 62
+
+    (20) elseif_expression -> ELSE IF condition . LCURLY statement RCURLY elseif_expression
+    (21) elseif_expression -> ELSE IF condition . LCURLY statement RCURLY else_expression
+
+    LCURLY          shift and go to state 66
+
+
+state 63
+
+    (16) forcondition -> LPAR expression SEMICOLON expression SEMICOLON expression RPAR .
+
+    LCURLY          reduce using rule 16 (forcondition -> LPAR expression SEMICOLON expression SEMICOLON expression RPAR .)
+
+
+state 64
+
+    (17) forcondition -> LPAR IDENTIFIER expression SEMICOLON expression SEMICOLON expression . RPAR
+
+    RPAR            shift and go to state 67
+
+
+state 65
+
+    (23) else_expression -> ELSE LCURLY statement RCURLY .
+
+    STRING          reduce using rule 23 (else_expression -> ELSE LCURLY statement RCURLY .)
+    IDENTIFIER      reduce using rule 23 (else_expression -> ELSE LCURLY statement RCURLY .)
+    IF              reduce using rule 23 (else_expression -> ELSE LCURLY statement RCURLY .)
+    CIN             reduce using rule 23 (else_expression -> ELSE LCURLY statement RCURLY .)
+    COUT            reduce using rule 23 (else_expression -> ELSE LCURLY statement RCURLY .)
+    WHILE           reduce using rule 23 (else_expression -> ELSE LCURLY statement RCURLY .)
+    FOR             reduce using rule 23 (else_expression -> ELSE LCURLY statement RCURLY .)
+    $end            reduce using rule 23 (else_expression -> ELSE LCURLY statement RCURLY .)
+    RCURLY          reduce using rule 23 (else_expression -> ELSE LCURLY statement RCURLY .)
+
+
+state 66
+
+    (20) elseif_expression -> ELSE IF condition LCURLY . statement RCURLY elseif_expression
+    (21) elseif_expression -> ELSE IF condition LCURLY . statement RCURLY else_expression
+    (1) statement -> . s1 s2
+    (2) statement -> . empty
+    (3) s1 -> . var_declaration_statement
+    (4) s1 -> . if_expression
+    (5) s1 -> . io_statement
+    (6) s1 -> . loop_expression
+    (7) s1 -> . STRING SEMICOLON
+    (8) s1 -> . empty
+    (28) empty -> .
+    (12) var_declaration_statement -> . IDENTIFIER STRING SEMICOLON
+    (18) if_expression -> . IF condition LCURLY statement RCURLY else_expression
+    (19) if_expression -> . IF condition LCURLY statement RCURLY elseif_expression
+    (10) io_statement -> . CIN RIGHTSHIFT STRING SEMICOLON
+    (11) io_statement -> . COUT LEFTSHIFT STRING SEMICOLON
+    (13) loop_expression -> . WHILE condition LCURLY statement RCURLY
+    (14) loop_expression -> . FOR forcondition LCURLY statement RCURLY
+
+  ! shift/reduce conflict for STRING resolved as shift
+  ! shift/reduce conflict for IDENTIFIER resolved as shift
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for CIN resolved as shift
+  ! shift/reduce conflict for COUT resolved as shift
+  ! shift/reduce conflict for WHILE resolved as shift
+  ! shift/reduce conflict for FOR resolved as shift
+    STRING          shift and go to state 8
+    RCURLY          reduce using rule 28 (empty -> .)
+    IDENTIFIER      shift and go to state 9
+    IF              shift and go to state 10
+    CIN             shift and go to state 11
+    COUT            shift and go to state 12
+    WHILE           shift and go to state 13
+    FOR             shift and go to state 14
+
+  ! STRING          [ reduce using rule 28 (empty -> .) ]
+  ! IDENTIFIER      [ reduce using rule 28 (empty -> .) ]
+  ! IF              [ reduce using rule 28 (empty -> .) ]
+  ! CIN             [ reduce using rule 28 (empty -> .) ]
+  ! COUT            [ reduce using rule 28 (empty -> .) ]
+  ! WHILE           [ reduce using rule 28 (empty -> .) ]
+  ! FOR             [ reduce using rule 28 (empty -> .) ]
+
+    statement                      shift and go to state 68
+    s1                             shift and go to state 2
+    empty                          shift and go to state 3
+    var_declaration_statement      shift and go to state 4
+    if_expression                  shift and go to state 5
+    io_statement                   shift and go to state 6
+    loop_expression                shift and go to state 7
+
+state 67
+
+    (17) forcondition -> LPAR IDENTIFIER expression SEMICOLON expression SEMICOLON expression RPAR .
+
+    LCURLY          reduce using rule 17 (forcondition -> LPAR IDENTIFIER expression SEMICOLON expression SEMICOLON expression RPAR .)
+
+
+state 68
+
+    (20) elseif_expression -> ELSE IF condition LCURLY statement . RCURLY elseif_expression
+    (21) elseif_expression -> ELSE IF condition LCURLY statement . RCURLY else_expression
+
+    RCURLY          shift and go to state 69
+
+
+state 69
+
+    (20) elseif_expression -> ELSE IF condition LCURLY statement RCURLY . elseif_expression
+    (21) elseif_expression -> ELSE IF condition LCURLY statement RCURLY . else_expression
+    (20) elseif_expression -> . ELSE IF condition LCURLY statement RCURLY elseif_expression
+    (21) elseif_expression -> . ELSE IF condition LCURLY statement RCURLY else_expression
+    (22) elseif_expression -> . empty
+    (23) else_expression -> . ELSE LCURLY statement RCURLY
+    (24) else_expression -> . empty
+    (28) empty -> .
+
+    ELSE            shift and go to state 70
+    STRING          reduce using rule 28 (empty -> .)
+    IDENTIFIER      reduce using rule 28 (empty -> .)
+    IF              reduce using rule 28 (empty -> .)
+    CIN             reduce using rule 28 (empty -> .)
+    COUT            reduce using rule 28 (empty -> .)
+    WHILE           reduce using rule 28 (empty -> .)
+    FOR             reduce using rule 28 (empty -> .)
+    $end            reduce using rule 28 (empty -> .)
+    RCURLY          reduce using rule 28 (empty -> .)
+
+    elseif_expression              shift and go to state 71
+    else_expression                shift and go to state 72
+    empty                          shift and go to state 73
+
+state 70
+
+    (20) elseif_expression -> ELSE . IF condition LCURLY statement RCURLY elseif_expression
+    (21) elseif_expression -> ELSE . IF condition LCURLY statement RCURLY else_expression
+    (23) else_expression -> ELSE . LCURLY statement RCURLY
+
+    IF              shift and go to state 58
+    LCURLY          shift and go to state 57
+
+
+state 71
+
+    (20) elseif_expression -> ELSE IF condition LCURLY statement RCURLY elseif_expression .
+
+    STRING          reduce using rule 20 (elseif_expression -> ELSE IF condition LCURLY statement RCURLY elseif_expression .)
+    IDENTIFIER      reduce using rule 20 (elseif_expression -> ELSE IF condition LCURLY statement RCURLY elseif_expression .)
+    IF              reduce using rule 20 (elseif_expression -> ELSE IF condition LCURLY statement RCURLY elseif_expression .)
+    CIN             reduce using rule 20 (elseif_expression -> ELSE IF condition LCURLY statement RCURLY elseif_expression .)
+    COUT            reduce using rule 20 (elseif_expression -> ELSE IF condition LCURLY statement RCURLY elseif_expression .)
+    WHILE           reduce using rule 20 (elseif_expression -> ELSE IF condition LCURLY statement RCURLY elseif_expression .)
+    FOR             reduce using rule 20 (elseif_expression -> ELSE IF condition LCURLY statement RCURLY elseif_expression .)
+    $end            reduce using rule 20 (elseif_expression -> ELSE IF condition LCURLY statement RCURLY elseif_expression .)
+    RCURLY          reduce using rule 20 (elseif_expression -> ELSE IF condition LCURLY statement RCURLY elseif_expression .)
+
+
+state 72
+
+    (21) elseif_expression -> ELSE IF condition LCURLY statement RCURLY else_expression .
+
+    STRING          reduce using rule 21 (elseif_expression -> ELSE IF condition LCURLY statement RCURLY else_expression .)
+    IDENTIFIER      reduce using rule 21 (elseif_expression -> ELSE IF condition LCURLY statement RCURLY else_expression .)
+    IF              reduce using rule 21 (elseif_expression -> ELSE IF condition LCURLY statement RCURLY else_expression .)
+    CIN             reduce using rule 21 (elseif_expression -> ELSE IF condition LCURLY statement RCURLY else_expression .)
+    COUT            reduce using rule 21 (elseif_expression -> ELSE IF condition LCURLY statement RCURLY else_expression .)
+    WHILE           reduce using rule 21 (elseif_expression -> ELSE IF condition LCURLY statement RCURLY else_expression .)
+    FOR             reduce using rule 21 (elseif_expression -> ELSE IF condition LCURLY statement RCURLY else_expression .)
+    $end            reduce using rule 21 (elseif_expression -> ELSE IF condition LCURLY statement RCURLY else_expression .)
+    RCURLY          reduce using rule 21 (elseif_expression -> ELSE IF condition LCURLY statement RCURLY else_expression .)
+
+
+state 73
+
+    (22) elseif_expression -> empty .
+    (24) else_expression -> empty .
+
+  ! reduce/reduce conflict for STRING resolved using rule 22 (elseif_expression -> empty .)
+  ! reduce/reduce conflict for IDENTIFIER resolved using rule 22 (elseif_expression -> empty .)
+  ! reduce/reduce conflict for IF resolved using rule 22 (elseif_expression -> empty .)
+  ! reduce/reduce conflict for CIN resolved using rule 22 (elseif_expression -> empty .)
+  ! reduce/reduce conflict for COUT resolved using rule 22 (elseif_expression -> empty .)
+  ! reduce/reduce conflict for WHILE resolved using rule 22 (elseif_expression -> empty .)
+  ! reduce/reduce conflict for FOR resolved using rule 22 (elseif_expression -> empty .)
+  ! reduce/reduce conflict for $end resolved using rule 22 (elseif_expression -> empty .)
+  ! reduce/reduce conflict for RCURLY resolved using rule 22 (elseif_expression -> empty .)
+    STRING          reduce using rule 22 (elseif_expression -> empty .)
+    IDENTIFIER      reduce using rule 22 (elseif_expression -> empty .)
+    IF              reduce using rule 22 (elseif_expression -> empty .)
+    CIN             reduce using rule 22 (elseif_expression -> empty .)
+    COUT            reduce using rule 22 (elseif_expression -> empty .)
+    WHILE           reduce using rule 22 (elseif_expression -> empty .)
+    FOR             reduce using rule 22 (elseif_expression -> empty .)
+    $end            reduce using rule 22 (elseif_expression -> empty .)
+    RCURLY          reduce using rule 22 (elseif_expression -> empty .)
+
+  ! STRING          [ reduce using rule 24 (else_expression -> empty .) ]
+  ! IDENTIFIER      [ reduce using rule 24 (else_expression -> empty .) ]
+  ! IF              [ reduce using rule 24 (else_expression -> empty .) ]
+  ! CIN             [ reduce using rule 24 (else_expression -> empty .) ]
+  ! COUT            [ reduce using rule 24 (else_expression -> empty .) ]
+  ! WHILE           [ reduce using rule 24 (else_expression -> empty .) ]
+  ! FOR             [ reduce using rule 24 (else_expression -> empty .) ]
+  ! $end            [ reduce using rule 24 (else_expression -> empty .) ]
+  ! RCURLY          [ reduce using rule 24 (else_expression -> empty .) ]
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for STRING in state 0 resolved as shift
+WARNING: shift/reduce conflict for IDENTIFIER in state 0 resolved as shift
+WARNING: shift/reduce conflict for IF in state 0 resolved as shift
+WARNING: shift/reduce conflict for CIN in state 0 resolved as shift
+WARNING: shift/reduce conflict for COUT in state 0 resolved as shift
+WARNING: shift/reduce conflict for WHILE in state 0 resolved as shift
+WARNING: shift/reduce conflict for FOR in state 0 resolved as shift
+WARNING: shift/reduce conflict for STRING in state 2 resolved as shift
+WARNING: shift/reduce conflict for IDENTIFIER in state 2 resolved as shift
+WARNING: shift/reduce conflict for IF in state 2 resolved as shift
+WARNING: shift/reduce conflict for CIN in state 2 resolved as shift
+WARNING: shift/reduce conflict for COUT in state 2 resolved as shift
+WARNING: shift/reduce conflict for WHILE in state 2 resolved as shift
+WARNING: shift/reduce conflict for FOR in state 2 resolved as shift
+WARNING: shift/reduce conflict for STRING in state 27 resolved as shift
+WARNING: shift/reduce conflict for IDENTIFIER in state 27 resolved as shift
+WARNING: shift/reduce conflict for IF in state 27 resolved as shift
+WARNING: shift/reduce conflict for CIN in state 27 resolved as shift
+WARNING: shift/reduce conflict for COUT in state 27 resolved as shift
+WARNING: shift/reduce conflict for WHILE in state 27 resolved as shift
+WARNING: shift/reduce conflict for FOR in state 27 resolved as shift
+WARNING: shift/reduce conflict for STRING in state 34 resolved as shift
+WARNING: shift/reduce conflict for IDENTIFIER in state 34 resolved as shift
+WARNING: shift/reduce conflict for IF in state 34 resolved as shift
+WARNING: shift/reduce conflict for CIN in state 34 resolved as shift
+WARNING: shift/reduce conflict for COUT in state 34 resolved as shift
+WARNING: shift/reduce conflict for WHILE in state 34 resolved as shift
+WARNING: shift/reduce conflict for FOR in state 34 resolved as shift
+WARNING: shift/reduce conflict for STRING in state 35 resolved as shift
+WARNING: shift/reduce conflict for IDENTIFIER in state 35 resolved as shift
+WARNING: shift/reduce conflict for IF in state 35 resolved as shift
+WARNING: shift/reduce conflict for CIN in state 35 resolved as shift
+WARNING: shift/reduce conflict for COUT in state 35 resolved as shift
+WARNING: shift/reduce conflict for WHILE in state 35 resolved as shift
+WARNING: shift/reduce conflict for FOR in state 35 resolved as shift
+WARNING: shift/reduce conflict for STRING in state 57 resolved as shift
+WARNING: shift/reduce conflict for IDENTIFIER in state 57 resolved as shift
+WARNING: shift/reduce conflict for IF in state 57 resolved as shift
+WARNING: shift/reduce conflict for CIN in state 57 resolved as shift
+WARNING: shift/reduce conflict for COUT in state 57 resolved as shift
+WARNING: shift/reduce conflict for WHILE in state 57 resolved as shift
+WARNING: shift/reduce conflict for FOR in state 57 resolved as shift
+WARNING: shift/reduce conflict for STRING in state 66 resolved as shift
+WARNING: shift/reduce conflict for IDENTIFIER in state 66 resolved as shift
+WARNING: shift/reduce conflict for IF in state 66 resolved as shift
+WARNING: shift/reduce conflict for CIN in state 66 resolved as shift
+WARNING: shift/reduce conflict for COUT in state 66 resolved as shift
+WARNING: shift/reduce conflict for WHILE in state 66 resolved as shift
+WARNING: shift/reduce conflict for FOR in state 66 resolved as shift
+WARNING: reduce/reduce conflict in state 3 resolved using rule (statement -> empty)
+WARNING: rejected rule (s1 -> empty) in state 3
+WARNING: reduce/reduce conflict in state 54 resolved using rule (elseif_expression -> empty)
+WARNING: rejected rule (else_expression -> empty) in state 54
+WARNING: reduce/reduce conflict in state 73 resolved using rule (elseif_expression -> empty)
+WARNING: rejected rule (else_expression -> empty) in state 73
+WARNING: Rule (else_expression -> empty) is never reduced
