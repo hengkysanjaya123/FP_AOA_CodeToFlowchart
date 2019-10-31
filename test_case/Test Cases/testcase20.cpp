@@ -17,11 +17,7 @@ cout << "Still smaller than 5";
 }
 
 cout << "Nice";
-}int input;
-int i=30;
-int j=10;
-cout << "enter number :";
-cin >> input;
+}
 if (input > 10){
 while(j < 20){
 if( i < j){
@@ -36,11 +32,7 @@ cout << "Still smaller than 5";
 }
 
 cout << "Nice";
-}int input;
-int i=30;
-int j=10;
-cout << "enter number :";
-cin >> input;
+}
 if (input > 10){
 while(j < 20){
 if( i < j){
@@ -55,11 +47,7 @@ cout << "Still smaller than 5";
 }
 
 cout << "Nice";
-}int input;
-int i=30;
-int j=10;
-cout << "enter number :";
-cin >> input;
+}
 if (input > 10){
 while(j < 20){
 if( i < j){
@@ -74,11 +62,7 @@ cout << "Still smaller than 5";
 }
 
 cout << "Nice";
-}int input;
-int i=30;
-int j=10;
-cout << "enter number :";
-cin >> input;
+}
 if (input > 10){
 while(j < 20){
 if( i < j){
@@ -93,11 +77,7 @@ cout << "Still smaller than 5";
 }
 
 cout << "Nice";
-}int input;
-int i=30;
-int j=10;
-cout << "enter number :";
-cin >> input;
+}
 if (input > 10){
 while(j < 20){
 if( i < j){
@@ -110,7 +90,6 @@ cout << "Added";
 while( i < 5){
 cout << "Still smaller than 5";
 }
-
 cout << "Nice";
 }
 for(int k = 0; i < 5; k++){
